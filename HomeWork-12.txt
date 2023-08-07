@@ -1,0 +1,46 @@
+//all Qustions well print in order first Qualifiers that have another method reletd with; then print anthor methed in order of spring boot
+
+Q1//output is 
+
+
+hey from message1
+// here only one print
+
+
+Q2// output is 
+
+
+hey from message1
+hey from message2
+//here message one printet then message tow.
+//becuse we not have sout	for data we well not print retern 1
+
+
+Q3// output is 
+
+
+hey from message3
+hey from message2
+hey from message1
+
+// here message 3 first then message tow then three.
+//becuse we not have sout	for data we well not print retern 1
+
+Q4//
+
+hey from message1
+hey from Main controller
+hey from message3
+hey from message2
+
+
+//here message one well printed then main controller then thrird message then message tow.
+
+Q5//
+
+hey from message3
+hey from message2
+hey from Main controller
+hey from message1
+
+//first message one then message tow then main controller message then message one here in  message one if we heve anthore message  we well ignore the order //becouse th spring boot have specile order we do not know aboute it
