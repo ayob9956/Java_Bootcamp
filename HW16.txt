@@ -1,0 +1,86 @@
+create database store;
+
+create table countries(
+    code int primary key ,
+    name varchar(20) unique ,
+    continet_name varchar(20) not null
+);
+
+
+
+create table users(
+    id int primary key ,
+    full_name varchar(20),
+    email varchar(20) unique ,
+
+    date_of_birth varchar(15),
+    creaeter_at datetime,
+    contray_id int,
+     gender char(1),
+    constraint check ( gender in ('m' , 'f')),
+
+    foreign key (contray_id) references countries(code)
+);
+
+
+
+
+create table orders(
+    id int primary key ,
+    creaeter_at datetime,
+    user_id int,
+    status char(6)
+    check ( status in ('stars' , 'finish')),
+
+    foreign key (user_id) references users(id)
+);
+
+
+
+
+
+create table product(
+    id int primary key ,
+    created_at datetime,
+    name varchar(10) not null ,
+    price int default(0),
+    status char(6)
+    check ( status in ('valid' , 'expired'))
+);
+
+
+
+
+
+create table order_products(
+    order_id int,
+    product_id int ,
+    quantity int default(0),
+
+    foreign key (order_id) references orders(id),
+    foreign key (product_id) references product(id)
+);
+
+
+
+insert into countries values (123,'ayob','saudi arabia');
+
+select * from countries;
+
+insert into users(id, full_name, email, date_of_birth, creaeter_at, contray_id, gender) values (2345,'ayoub 
+ayed','ayob@gmail.com','1999-09-14', CURRENT_TIMESTAMP  ,123,'m');
+
+insert into orders(id, creaeter_at, user_id, status) VALUES (1212,CURRENT_TIMESTAMP,2345,'finish');
+
+insert into product(id, created_at, name, price, status) VALUES (1313,CURRENT_TIMESTAMP,'iphone',2000,'valid');
+
+insert into product(id, created_at, name, price, status) VALUES (1315,CURRENT_TIMESTAMP,'iphone',2000,'valid');
+
+
+insert into order_products(order_id, product_id, quantity) VALUES (1212,1313,4);
+
+update countries set name = 'ahmad' where continet_name = 'saudi arabia';
+
+select * from countries;
+
+delete from product where id =  1315;
