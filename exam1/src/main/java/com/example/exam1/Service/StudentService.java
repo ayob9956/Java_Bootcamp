@@ -40,11 +40,11 @@ public class StudentService {
     }
 
 
-    public ResponseEntity searchStudent(String id){
+    public ResponseEntity searchStudent(String name){
         for (int i =0 ; i<students.size();i++){
-                if (students.get(i).getId().equals(id)){
+                if (students.get(i).getName().equals(name)){
                 return ResponseEntity.status(200).body(students.get(i));
             }
-        } return ResponseEntity.status(400).body(new ApiResponse("id not fond!"));
+        } return ResponseEntity.status(400).body(new ApiResponse("name not fond!"));
     }
 }

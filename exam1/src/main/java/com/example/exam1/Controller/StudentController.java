@@ -69,8 +69,8 @@ public class StudentController {
     }
 
 
-    @GetMapping("/search/{id}")
-    public ResponseEntity searchStudent(@PathVariable String id){
-        return studentService.searchStudent(id);
+    @GetMapping("/search/{name}")
+    public ResponseEntity searchStudent(@PathVariable String name){
+        return studentService.searchStudent(name);
     }
 }
