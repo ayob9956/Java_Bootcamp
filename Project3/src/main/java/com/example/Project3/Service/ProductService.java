@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 @Service
 @RequiredArgsConstructor
+@Data
 public class ProductService {
     ArrayList<Product> products =new ArrayList<>();
 
@@ -38,4 +39,7 @@ public class ProductService {
             }
         }return false;
     }
+
+
+
 }

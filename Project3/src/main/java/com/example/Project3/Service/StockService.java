@@ -12,7 +12,7 @@ import java.util.ArrayList;
 @Service
 @RequiredArgsConstructor
 public class StockService {
-    public final UserService userService;
+
     public final ProductService productService;
     ArrayList<MerchantStock> merchantStock = new ArrayList<>();
 
@@ -59,31 +59,6 @@ public class StockService {
             }
         }
         return false;
-    }
-
-    public boolean buyProduct( String productId,
-                                         String id,
-                                         String merchantId) {
-        int index =0;
-        if (!(merchantStock.get(index).getProductId().equals(productId)&&merchantStock.get(index).getMerchantId().equals(merchantId)&&userService.users.get(index).getId().equals(id))){
-           return false;
-        }
-
-        for (int i = 0; i < merchantStock.size(); i++) {
-            if (!merchantStock.get(i).getProductId().equals(productId) && !merchantStock.get(i).equals(merchantId)) {
-                return false;
-            }}
-
-            if (userService.users.get(index).getId().equals(id)&&userService.users.get(index).getBalnce() < productService.products.get(index).getPrice()) {
-                return false;
-
-            }
-            if (userService.users.get(index).getBalnce() >= productService.products.get(index).getPrice()) {
-                userService.users.get(index).setBalnce(userService.getUsers().get(index).getBalnce() - productService.getProducts().get(index).getPrice());
-                merchantStock.get(index).setStock(merchantStock.get(index).getStock() - 1);
-            }
-
-        return true;
     }
 
     public MerchantStock searchStock(String productId){

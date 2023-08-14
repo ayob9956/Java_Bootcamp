@@ -26,6 +26,7 @@ public class StockController {
     public ArrayList<MerchantStock> getMerchantStock(){
         return stockService.getMerchantStock();
     }
+
     @PostMapping("/add")
     public ResponseEntity addMerchant(@RequestBody @Valid MerchantStock merchantStock , Errors errors){
         if (errors.hasErrors()){

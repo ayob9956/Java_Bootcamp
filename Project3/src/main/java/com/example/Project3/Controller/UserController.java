@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class UserController {
 
     private final UserService userService;
-    private final StockService stockService;
+
 
 
 
@@ -77,7 +77,7 @@ public ResponseEntity buyProduct(  User user,
             return ResponseEntity.status(400).body(message);
         }
 
-        boolean haveProduct = stockService.buyProduct(productId,id,merchantId);
+        boolean haveProduct = userService.buyProduct(productId,id,merchantId);
         System.out.println(haveProduct);
         if (haveProduct){
             return ResponseEntity.status(200).body(new ApiResponse("nice to sell you"));

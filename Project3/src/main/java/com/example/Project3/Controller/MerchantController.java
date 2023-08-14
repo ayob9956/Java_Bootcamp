@@ -29,7 +29,7 @@ import java.util.ArrayList;
 public class MerchantController {
 
     public final MerchantService merchantService;
-    public final StockService stockService1;
+
 
 
 
@@ -82,7 +82,7 @@ public ResponseEntity addMerchantStock( MerchantStock merchantStock , @PathVaria
             String message = errors.getFieldError().getDefaultMessage();
             return ResponseEntity.status(400).body(message);
         }
-        boolean isUpdated = stockService1.updateMerchantStock(productId, merchantId, amount);
+        boolean isUpdated = merchantService.updateMerchantStock(productId, merchantId, amount);
         if (isUpdated){
             return ResponseEntity.status(200).body(new ApiResponse("Merchant is added"));
 
