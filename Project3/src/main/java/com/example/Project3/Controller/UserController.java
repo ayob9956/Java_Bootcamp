@@ -85,4 +85,19 @@ public ResponseEntity buyProduct(  User user,
         return ResponseEntity.status(400).body(new ApiResponse("check your data!!"));
 
 }
+
+    @GetMapping("/serch/{username}")
+    public ResponseEntity serchUser(@PathVariable("username") String username){
+
+        if (userService.serchUser(username)!=null){
+
+
+
+
+            return ResponseEntity.status(200).body(userService.serchUser(username));
+        }
+
+        return ResponseEntity.status(400).body(new ApiResponse("user not found!!"));
+
+    }
 }

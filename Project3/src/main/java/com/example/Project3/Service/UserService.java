@@ -1,6 +1,7 @@
 package com.example.Project3.Service;
 
 import com.example.Project3.Model.Category;
+import com.example.Project3.Model.MerchantStock;
 import com.example.Project3.Model.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -63,6 +64,17 @@ private final ProductService productService;
                 return true;
             }
         }return false;
+    }
+
+//
+    public User serchUser(String username){
+        for (User user : users) {
+            if (user.getUsername().equals(username)) {
+
+                return user;
+            }
+        }
+        return null;
     }
 
 }
