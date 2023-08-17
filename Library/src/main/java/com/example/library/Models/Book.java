@@ -1,20 +1,24 @@
 package com.example.library.Models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @Entity
-@RequiredArgsConstructor
+@AllArgsConstructor
 @Data
+@NoArgsConstructor
+@Table(name = "book")
 public class Book {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @NotEmpty(message = "the title is should not empty!!")
     @Column(columnDefinition = "varchar(20) not null")
@@ -25,11 +29,11 @@ public class Book {
 
     private String author;
 
-    @Column(columnDefinition = "varchar(20) not null")
-    @NotEmpty(message = "category is should be not null check( Category= 'Academic' or Category='Mystery' or Category='Novel' )")
+    @Column(columnDefinition = "varchar(20) not null check( Category= 'Academic' or Category='Mystery' or Category='Novel' )")
+    @NotEmpty(message = " not null ")
     private String category;// (check Academic or Mystery or Novel )
     @NotNull(message = "ISBN NOt null!!!")
-    @Column(columnDefinition = "varchar(20) not null")
+    @Column(columnDefinition = "int not null")
     private Integer isbn;
 
     @Min(value = 50, message = "pages is at least is 50!!")

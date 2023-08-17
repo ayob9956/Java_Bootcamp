@@ -3,9 +3,10 @@ package com.example.library.Repostry;
 import com.example.library.Models.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public interface BookRepostry extends JpaRepository<Book,Integer> {
 
     Book findBookBy(Integer id);
