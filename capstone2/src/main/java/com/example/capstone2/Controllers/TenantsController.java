@@ -82,6 +82,13 @@ public class TenantsController {
         return ResponseEntity.status(200).body(getAll());
 
     }
+    @GetMapping("/contractextension/{contract}/{enddate}/{startdate}")
+    public ResponseEntity ContractExtension(@PathVariable String contract,@PathVariable String enddate,@PathVariable String startdate) {
+        Tenants tenants = tenantsService.searchByContract(contract);
+        tenantsService.ContractExtension(contract, enddate,startdate);
+        return ResponseEntity.status(200).body(getAll());
+
+    }
 
 
 }

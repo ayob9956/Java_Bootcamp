@@ -108,12 +108,14 @@ public class TenantsService {
 
     }
 
-//    public Tenants ContractExtension(String contract,Tenants tenants){
-//        Tenants tenants1 = tenantsRepostry.findByContract(contract);
-//
-//        if (tenants1 == null) {
-//            throw new ApiException("id is not found");
-//        }
-//        if ()
-//        tenantsRepostry.save(tenants1);}
-//}
+    public void ContractExtension(String contract,String startdatet,String enddate){
+        Tenants tenants1 = tenantsRepostry.findByContract(contract);
+        if (tenants1 == null) {
+            throw new ApiException("id is not found");
+        }
+       tenants1.setStartdate(startdatet);
+        tenants1.setEnddate(enddate);
+
+        tenantsRepostry.save(tenants1);
+    }
+}
