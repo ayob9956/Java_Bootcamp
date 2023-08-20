@@ -24,7 +24,11 @@ public class PropertyMangment {
     private String nameofowner;
 
     @Column(nullable = false,columnDefinition = "int")
-    private Integer income;
+    private Integer expectedincome;
+
+
+    @Column(nullable = false,columnDefinition = "int")
+    private Integer price;
 
 
 

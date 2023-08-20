@@ -79,7 +79,7 @@ public class TenantsController {
     public ResponseEntity domatinance(@PathVariable String contract,@PathVariable Integer mant) {
         Tenants tenants = tenantsService.searchByContract(contract);
         tenantsService.domatinance(contract, tenants,mant);
-        return ResponseEntity.status(200).body(getAll());
+        return ResponseEntity.status(200).body(tenants);
 
     }
     @GetMapping("/contractextension/{contract}/{enddate}/{startdate}")

@@ -57,10 +57,10 @@ public class PropertyMangmentService {
         return propertyMangment1;
     }
 
-    public List<PropertyMangment> searchPropertymorethan(Integer income){
-        List<PropertyMangment> propertyMangment1 = propertyMangmentRepostry.findPropertyMangmentByIncomeGreaterThanEqual(income);
+    public List<PropertyMangment> searchPropertymorethan(Integer expectedincome){
+        List<PropertyMangment> propertyMangment1 = propertyMangmentRepostry.findPropertyMangmentByExpectedincomeGreaterThanEqual(expectedincome);
         if (propertyMangment1==null){
-            throw new ApiException("Owner is not found");
+            throw new ApiException("is not found");
         }
         return propertyMangment1;
     }

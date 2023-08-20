@@ -85,6 +85,9 @@ public class TenantsService {
         if (tenants1 == null) {
             throw new ApiException("id is not found");
         }
+        if(tenants1.getBalanceOfTenant()<tenants1.getPrice()){
+            throw new ApiException("Balance Of Tenant is Not ");
+        }
         tenants1.setBalanceOfTenant(tenants.getBalanceOfTenant() - tenants1.getPrice());
         tenants1.setBalnaceOfRenter(tenants.getBalnaceOfRenter() + tenants1.getPrice());
 
@@ -96,6 +99,10 @@ public class TenantsService {
 
         if (tenants1 == null) {
             throw new ApiException("id is not found");
+        }
+
+        if(tenants1.getBalanceOfTenant()<mant){
+            throw new ApiException("Balance Of Tenant is not found");
         }
         tenants1.setBalanceOfTenant( tenants.getBalanceOfTenant() - mant);
         tenants1.setBalnaceOfRenter(tenants.getBalnaceOfRenter() + mant);

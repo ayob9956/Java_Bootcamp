@@ -18,7 +18,7 @@ public interface PropertyMangmentRepostry extends JpaRepository<PropertyMangment
 
     List<PropertyMangment> findPropertyMangmentByNameofowner(String nameofowner);
 
-    List<PropertyMangment> findPropertyMangmentByIncomeGreaterThanEqual(Integer income);
+    List<PropertyMangment> findPropertyMangmentByExpectedincomeGreaterThanEqual(Integer expectedincome);
 
 
 

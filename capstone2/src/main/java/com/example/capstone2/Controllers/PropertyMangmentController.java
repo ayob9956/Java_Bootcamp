@@ -48,8 +48,8 @@ public class PropertyMangmentController {
     }
 
 
-    @GetMapping("/serchmorethan/{income}")
-    public ResponseEntity searchincomemorethan(@PathVariable Integer income){
-        return ResponseEntity.status(200).body(propertyMangmentService.searchPropertymorethan(income));
+    @GetMapping("/serchmorethan/{expectedincome}")
+    public ResponseEntity searchincomemorethan(@PathVariable Integer expectedincome){
+        return ResponseEntity.status(200).body(propertyMangmentService.searchPropertymorethan(expectedincome));
     }
 }
